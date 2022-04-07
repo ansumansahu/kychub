@@ -1,3 +1,12 @@
+'''
+Month_assigned : April
+Date Submitted : 04-04-2022
+Date_source_name : Most Wicked Indian Gangsters
+Harvesting_URL : https://www.thefamouspeople.com/indian-gangsters.php
+Data_Extractor : Ansuman Sahu
+Assinged_cleaner : --
+'''
+
 from selenium import webdriver
 from selenium.common.exceptions import ElementNotInteractableException, ElementClickInterceptedException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -28,10 +37,10 @@ options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(PATH)
 driver.maximize_window()
 
-# def to_json(data_list):
-#     hash_obj = json.dumps(data_list)
-#     with open('json/dictionary.json', 'w') as ts:
-#         ts.write(hash_obj)
+def to_json(data_list):
+    hash_obj = json.dumps(data_list)
+    with open('dictionary.json', 'w') as ts:
+        ts.write(hash_obj)
 
 # def get_soup(url):
 #     res = requests.get(url)
@@ -51,6 +60,7 @@ def extract_entity(data_sec, raw_html, slug_name):
         fullName = ''
         image = ''
         dob = ''
+        category = ''
         crimeDescription = ''
         placeOfBirthCity = ''
         placeOfBirthCountry = ''
@@ -100,6 +110,7 @@ def extract_entity(data_sec, raw_html, slug_name):
             data_dict['dob'] = dob
             data_dict['placeOfBirthCity'] = placeOfBirthCity
             data_dict['placeOfBirthCountry'] = placeOfBirthCountry
+            data_dict['category'] = 'Individual'
             data_dict['crimeDescription'] = crimeDescription
             data_dict['additionalInfo'] = additionalInfo
             data_dict['summary'] = summary
@@ -137,5 +148,5 @@ def get_data(slug_name):
 
 if __name__ == "__main__":
     data_list = get_data('add-slug-here')
-    # to_json(data_list)
+    to_json(data_list)
     print(data_list)
