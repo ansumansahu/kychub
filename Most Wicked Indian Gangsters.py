@@ -37,6 +37,7 @@ options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(PATH)
 driver.maximize_window()
 
+
 def to_json(data_list):
     hash_obj = json.dumps(data_list)
     with open('dictionary.json', 'w') as ts:
@@ -114,7 +115,6 @@ def extract_entity(data_sec, raw_html, slug_name):
             data_dict['crimeDescription'] = crimeDescription
             data_dict['additionalInfo'] = additionalInfo
             data_dict['summary'] = summary
-            data_dict['EmployeeName'] = "Ansuman Sahu"
             data_dict['UpdationFlag'] = True
             data_dict['RawHtml'] = html_hash
             data_dict['LastUpdatedDev'] = last_updated_dev

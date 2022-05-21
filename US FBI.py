@@ -52,7 +52,6 @@ def get_data(slug_name):
                               f"/html/body/div[1]/div[2]/div[2]/section/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div/a[1]")
 
     for i in range(1, len(li)+1):
-    # for i in range(6, 7):
         try:
             link = driver.find_element(By.XPATH,
                                        f"/html/body/div[1]/div[2]/div[2]/section/div/div[1]/div[1]/div[1]/div/div/div/div/div/div[{i}]/div/a[1]").get_attribute(

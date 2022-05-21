@@ -76,7 +76,6 @@ def get_data(slug_name):
         data_dict['summary'] = fullName[i].strip() + " is a member of the Board of Directors of Bermuda responsible for managing the affairs and business of the BMA and determining the policy objectives and strategy of the Authority."
         print(data_dict)
         html_hash = get_hash_of_html(str(data_dict))
-        data_dict['EmployeeName'] = "Ansuman Sahu"
         data_dict['UpdationFlag'] = True
         data_dict['RawHtml'] = html_hash
         data_dict['LastUpdatedDev'] = last_updated_dev
@@ -88,5 +87,5 @@ def get_data(slug_name):
 
 if __name__ == "__main__":
     data_list = get_data('add-slug-here')
-    # to_json(data_list)
+    to_json(data_list)
     print(data_list)
